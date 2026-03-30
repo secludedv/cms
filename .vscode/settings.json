@@ -1,0 +1,5 @@
+{
+  "snyk.advanced.organization": "2ce5cd29-20f1-4869-9903-21d9f2248f54",
+  "snyk.advanced.autoSelectOrganization": true,
+  "java.compile.nullAnalysis.mode": "automatic"
+}

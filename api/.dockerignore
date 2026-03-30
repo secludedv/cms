@@ -1,0 +1,21 @@
+# Ignore build output
+
+build/
+.gradle/
+
+# Ignore IDE files
+
+.idea/
+_.iml
+_.iws
+\*.ipr
+.vscode/
+
+# Ignore env files
+
+.env
+
+# Ignore git
+
+.git/
+.gitignore
