@@ -34,7 +34,7 @@ export const COMPLAINT_ISSUES_BY_SYSTEM = {
 
 export const COMPLAINT_SYSTEM_OPTIONS = Object.keys(COMPLAINT_ISSUES_BY_SYSTEM);
 
-export function getComplaintIssues(system?: string) {
+export function getComplaintIssues(system?: string): string[] {
   if (!system) return [];
 
   if (!(system in COMPLAINT_ISSUES_BY_SYSTEM)) {
