@@ -22,11 +22,7 @@ export const COMPLAINT_ISSUES_BY_SYSTEM = {
     "Others",
     "Electrical fault",
   ],
-  "CO2 Flooding System": [
-    "Mechanical Issue",
-    "Gas Pressure Issue",
-    "Others",
-  ],
+  "CO2 Flooding System": ["Mechanical Issue", "Gas Pressure Issue", "Others"],
   "Medium/ High Velocity water Spray System": [
     "Leakage",
     "Performance Issue",
@@ -36,12 +32,18 @@ export const COMPLAINT_ISSUES_BY_SYSTEM = {
   Others: ["Others"],
 } as const satisfies Record<string, readonly string[]>;
 
-export const COMPLAINT_SYSTEM_OPTIONS = Object.keys(
-  COMPLAINT_ISSUES_BY_SYSTEM,
-);
+export const COMPLAINT_SYSTEM_OPTIONS = Object.keys(COMPLAINT_ISSUES_BY_SYSTEM);
 
 export function getComplaintIssues(system?: string) {
   if (!system) return [];
 
-  return [...(COMPLAINT_ISSUES_BY_SYSTEM[system] ?? [])];
+  if (!(system in COMPLAINT_ISSUES_BY_SYSTEM)) {
+    return [];
+  }
+
+  return [
+    ...COMPLAINT_ISSUES_BY_SYSTEM[
+      system as keyof typeof COMPLAINT_ISSUES_BY_SYSTEM
+    ],
+  ];
 }
