@@ -34,7 +34,8 @@ export async function DELETE(
 
 async function proxyRequest(request: NextRequest, params: { path: string[] }) {
   const path = params.path.join("/");
-  const url = `${BACKEND_URL}/api/${path}`;
+  const url = new URL(`/api/${path}`, BACKEND_URL);
+  url.search = request.nextUrl.search;
 
   const cookieStore = await cookies();
   const token = cookieStore.get(COOKIE_NAME)?.value;
